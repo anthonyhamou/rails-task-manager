@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1><%= @task.title %></h1>
+      <h2><%= @task.details %></h2>
+        <% if @task.completed  %>
+          <i class="fa fa-check-square-o" aria-hidden="true"> This task completed</i>
+        <% else %>
+          <i class="fa fa-square-o" aria-hidden="true"> This task is not completed yet</i>
+        <% end %>
+        <br/>
+        <i class="fa fa-undo" aria-hidden="true"></i>
+        <%= link_to "Back to list", tasks_path %>
+        <br/>
+        <i class="fa fa-undo" aria-hidden="true"></i>
+        <%= link_to "Edit a new task", edit_task_path %>
+  </div>
+</div

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center">My Tasks</h1>
+      <ul class="list-unstyled">
+        <% @tasks.each do |task| %>
+          <li>
+            <% if task.completed  %>
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            <% else %>
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            <% end %>
+            <span><%= link_to task.title, task_path(task) %></span>
+            <span><%= link_to task_path(task), method: :delete, data: {confirm: "Delete #{task.title}?"} do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+      <br/>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <%= link_to "Add to list", new_task_path %>
+    </div>
+  </div>
+</div>
